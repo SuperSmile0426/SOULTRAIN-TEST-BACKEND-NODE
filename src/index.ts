@@ -1,14 +1,9 @@
-import 'dotenv/config';
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express from 'express';
 
-const app: Application = express();
+import {
+  backendSetup
+} from './setup';
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-  res.send('Express server with TypeScript');
-});
+const app = express();
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+backendSetup(app);
